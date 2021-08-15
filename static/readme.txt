@@ -1,0 +1,1 @@
+this folder will contain any images or JS files that are used
