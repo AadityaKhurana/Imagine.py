@@ -1,13 +1,6 @@
 from flask import Flask, render_template, request
-import randfacts
+import my_functions
 
-# Our Functions
-
-def get_fact():
-    x = randfacts.getFact(True)
-    return x
-
-# Flask-------------
 
 app = Flask(__name__)
 
@@ -18,6 +11,3 @@ def home():
 @app.route('/index')
 def index():
     return render_template('index.html')
-
-
-print(get_fact())
