@@ -27,7 +27,7 @@ def reminder_check(name):
     return answer
 
 def set_reminder(name, input_value):
-    my_dict = {'water': 2, "exercise": 3, "class": 4}
+    my_dict = {'water': 2, "meditate": 3, "exercise": 4, "rest": 5, "entertain": 6}
     path = "radio_btn.xlsx"
     wb_obj = openpyxl.load_workbook(path.strip())
     sheet_obj = wb_obj.active
