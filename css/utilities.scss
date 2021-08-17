@@ -1,0 +1,30 @@
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@900&family=Open+Sans:wght@600&display=swap");
+
+$light: #ebebeb;
+$dark: #272727;
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+@mixin btn($clr, $bg-clr, $fnt) {
+	color: $clr;
+	background: $bg-clr;
+	font-family: "Open Sans", sans-serif;
+	font-size: $fnt;
+	padding: 0.35em 0.9em;
+	border: none;
+	box-shadow: 0 2px 4px 1px rgba(black, 0.15);
+	border-radius: 0.5em;
+
+	&:hover {
+		cursor: pointer;
+		filter: brightness(1.1);
+	}
+
+	&:active {
+		transform: scale(97%);
+	}
+}
