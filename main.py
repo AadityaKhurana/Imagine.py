@@ -12,4 +12,16 @@ def home():
 def index():
     return render_template('index.html')
 
+@app.route('/recreation')
+def recreation():
+    return render_template('recreation.html')
+
+@app.route('/reminders')
+def reminders():
+    return render_template('reminders.html')
+
+@app.route('/timetable')
+def timetable():
+    return render_template('timetable.html')
+
 app.run(debug=True)
