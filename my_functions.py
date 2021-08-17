@@ -53,6 +53,3 @@ def set_time_table(slot, input_value):
     obj_cell = sheet_obj.cell(row=row, column=2)
     obj_cell.value = input_value
     wb_obj.save("time_table.xlsx")
-
-set_time_table('9-10', "new task")
-print(check_time_table('9-10'))
