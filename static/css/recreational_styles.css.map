@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "ACAA,OAAO,CAAC,4GAAI;AAKZ,AAAA,CAAC,CAAC;EACD,MAAM,EAAE,CAAC;EACT,OAAO,EAAE,CAAC;EACV,UAAU,EAAE,UAAU;CACtB;;ADPD,AAAA,IAAI,CAAC;EACJ,UAAU,EAAE,MAAM;CAClB",
+    "sources": [
+        "recreational_styles.scss",
+        "_utilities.scss"
+    ],
+    "names": [],
+    "file": "recreational_styles.css"
+}
