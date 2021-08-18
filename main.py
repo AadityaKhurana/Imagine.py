@@ -24,4 +24,5 @@ def reminders():
 def timetable():
     return render_template('timetable.html')
 
-app.run(debug=True)
+if __name__ == '__main__':
+    app.run(debug=True)
