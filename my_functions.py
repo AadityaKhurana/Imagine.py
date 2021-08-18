@@ -3,6 +3,7 @@ import requests
 import pandas
 import openpyxl
 import random
+import datetime
 
 num = [1, 3, 3, 4, 5, 6, 7, 8, 9, 10]
 
@@ -13,14 +14,29 @@ def get_fact():
     return fact
 
 def get_qoute():
-    response = requests.get("https://quotes.rest/qod?language=en")
-    json_response = response.json()
-    # quote = json_response["contents"]["quotes"][0]["quote"]
-    # author = json_response["contents"]["quotes"][0]["author"]
-    quote = "Cats urine glows under a black light."
-    author = "ME"
-    return_list = [quote, author]
+    current_time = datetime.datetime.now()
+    current_date = str(current_time.day)+ '-'+ str(current_time.month)+ '-'+ str(current_time.year)
+    db = pandas.read_excel('quote.xlsx')
+    my_array = db.to_numpy()
+    quote_added = bool
+    for i in range(len(my_array)):
+        if my_array[i][0] == current_date:
+            print("Quote already there")
+            quote = my_array[i][1]
+            author = my_array[i][2]
+            return_list = [quote, author]
+            quote_added = True
+        else:
+            quote_added = False
+    if quote_added == False:
+        print("Fetching...")
+        response = requests.get("https://quotes.rest/qod?language=en")
+        json_response = response.json()
+        quote = json_response["contents"]["quotes"][0]["quote"]
+        author = json_response["contents"]["quotes"][0]["author"]
+        return_list = [quote, author]
     return return_list
+
 
 def get_youtube_vid():
     response = requests.get("https://www.googleapis.com/youtube/v3/search?q=stand+up+comedy&key=AIzaSyD0VsHXytSG_QarxOHFzO9MDYMJydLT-Ag&maxResults=10")
@@ -28,9 +44,8 @@ def get_youtube_vid():
     number = random.choice(num)
     vid_id = json_response["items"][number]['id']["videoId"]
     link = "https://www.youtube.com/embed/"+vid_id
-    # embed = '<iframe width="1268" height="713" src="'+link+'" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write;encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'
     return link
-    
+
 def reminder_check(name):
     my_dict = dict()
     db = pandas.read_excel('radio_btn.xlsx')
