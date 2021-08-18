@@ -1,7 +1,10 @@
+import json
 import requests
 import pandas
 import openpyxl
+import random
 
+num = [1, 3, 3, 4, 5, 6, 7, 8, 9, 10]
 
 def get_fact():
     response = requests.get("https://uselessfacts.jsph.pl/today.json?language=en")
@@ -12,11 +15,22 @@ def get_fact():
 def get_qoute():
     response = requests.get("https://quotes.rest/qod?language=en")
     json_response = response.json()
-    quote = json_response["contents"]["quotes"][0]["quote"]
-    author = json_response["contents"]["quotes"][0]["author"]
+    # quote = json_response["contents"]["quotes"][0]["quote"]
+    # author = json_response["contents"]["quotes"][0]["author"]
+    quote = "Cats urine glows under a black light."
+    author = "ME"
     return_list = [quote, author]
     return return_list
 
+def get_youtube_vid():
+    response = requests.get("https://www.googleapis.com/youtube/v3/search?q=stand+up+comedy&key=AIzaSyD0VsHXytSG_QarxOHFzO9MDYMJydLT-Ag&maxResults=10")
+    json_response = response.json()
+    number = random.choice(num)
+    vid_id = json_response["items"][number]['id']["videoId"]
+    link = "https://www.youtube.com/embed/"+vid_id
+    # embed = '<iframe width="1268" height="713" src="'+link+'" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write;encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'
+    return link
+    
 def reminder_check(name):
     my_dict = dict()
     db = pandas.read_excel('radio_btn.xlsx')
@@ -53,3 +67,5 @@ def set_time_table(slot, input_value):
     obj_cell = sheet_obj.cell(row=row, column=2)
     obj_cell.value = input_value
     wb_obj.save("time_table.xlsx")
+
+get_youtube_vid()
