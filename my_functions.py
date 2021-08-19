@@ -6,7 +6,10 @@ import random
 import datetime
 
 num = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+<<<<<<< HEAD
 
+=======
+>>>>>>> 7e14e3dae2e8fe5250f77bc62b26e11cf63df955
 
 def get_fact():
     response = requests.get(
@@ -93,3 +96,8 @@ def set_time_table(slot, input_value):
     obj_cell = sheet_obj.cell(row=row, column=2)
     obj_cell.value = input_value
     wb_obj.save("time_table.xlsx")
+<<<<<<< HEAD
+=======
+
+get_youtube_vid()
+>>>>>>> 7e14e3dae2e8fe5250f77bc62b26e11cf63df955
