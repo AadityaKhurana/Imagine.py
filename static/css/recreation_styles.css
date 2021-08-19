@@ -7,8 +7,14 @@
 }
 
 body {
+  min-height: 100vh;
+  background: -webkit-gradient(linear, left bottom, right top, from(#181818), to(#474747));
+  background: linear-gradient(to top right, #181818, #474747);
+}
+
+body {
   text-align: center;
-  padding-top: 1.75em;
+  padding-top: 1.5em;
   background: #272727;
   max-width: 70ch;
   margin-inline: auto;
@@ -16,10 +22,10 @@ body {
 
 h1 {
   font-family: "Merriweather", serif;
-  font-size: 1.75rem;
+  font-size: 2rem;
   letter-spacing: 1.5px;
   color: #f5f5f5;
-  margin-bottom: 1.1em;
+  margin-bottom: 0.9em;
 }
 
 h2,
@@ -38,9 +44,25 @@ h3 {
   font-size: 1.25rem;
 }
 
+h3:first-of-type {
+  position: relative;
+}
+
+h3:first-of-type::before {
+  position: absolute;
+  content: open-quote;
+  font-size: 2em;
+}
+
+h3:first-of-type::after {
+  position: absolute;
+  content: close-quote;
+  font-size: 2em;
+}
+
 iframe {
   margin-top: 0.5em;
-  height: 7rem;
-  width: 11rem;
+  height: 7.5rem;
+  width: 12rem;
 }
 /*# sourceMappingURL=recreation_styles.css.map */

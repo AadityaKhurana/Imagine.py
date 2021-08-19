@@ -7,9 +7,12 @@
 }
 
 body {
-  height: 100vh;
+  min-height: 100vh;
   background: -webkit-gradient(linear, left bottom, right top, from(#181818), to(#474747));
   background: linear-gradient(to top right, #181818, #474747);
+}
+
+body {
   overflow: hidden;
 }
 

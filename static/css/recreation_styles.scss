@@ -2,7 +2,7 @@
 
 body {
 	text-align: center;
-	padding-top: 1.75em;
+	padding-top: 1.5em;
 	background: $darker;
 	max-width: 70ch;
 	margin-inline: auto;
@@ -10,10 +10,10 @@ body {
 
 h1 {
 	font-family: "Merriweather", serif;
-	font-size: 1.75rem;
+	font-size: 2rem;
 	letter-spacing: 1.5px;
 	color: $lightest;
-	margin-bottom: 1.1em;
+	margin-bottom: 0.9em;
 }
 
 h2,
@@ -32,8 +32,24 @@ h3 {
 	font-size: 1.25rem;
 }
 
+h3:first-of-type {
+	// quotes: "“" "”";
+	position: relative;
+	&::before {
+		position: absolute;
+		content: open-quote;
+		font-size: 2em;
+	}
+
+	&::after {
+		position: absolute;
+		content: close-quote;
+		font-size: 2em;
+	}
+}
+
 iframe {
 	margin-top: 0.5em;
-	height: 7rem;
-	width: 11rem;
+	height: 7.5rem;
+	width: 12rem;
 }

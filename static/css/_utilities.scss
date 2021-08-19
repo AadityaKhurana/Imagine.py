@@ -13,6 +13,11 @@ $darkest: #181818;
 	box-sizing: border-box;
 }
 
+body {
+	min-height: 100vh;
+	background: linear-gradient(to top right, $darkest, $dark);
+}
+
 @mixin btn($clr, $bg-clr, $fnt) {
 	color: $clr;
 	background: $bg-clr;
